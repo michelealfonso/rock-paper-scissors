@@ -17,11 +17,11 @@ export class AppComponent {
 
   play(userWeapon: string): void {
     this.userSelected = userWeapon;
-    console.log( this.userSelected);
+    // console.log( this.userSelected);
     setTimeout(() => {
       const randomNum = Math.floor(Math.random() * 3)
       this.pcSelected = this.choices[randomNum];
-      console.log( this.choices);
+      // console.log( this.choices);
       this.checkResult();
     }, 1000)
   }
@@ -57,10 +57,18 @@ export class AppComponent {
     const userChoice = this.userSelected;
     const pcChoice = this.pcSelected;
 
-    if (userChoice + pcChoice == 'rockscissors' || userChoice + pcChoice == 'paperrock' || userChoice + pcChoice == 'scissorspaper') {
-      this.win(userChoice, pcChoice);
+    if (
+        userChoice + pcChoice == 'rockscissors' ||
+        userChoice + pcChoice == 'paperrock' ||
+        userChoice + pcChoice == 'scissorspaper'
+        ) {
+          this.win(userChoice, pcChoice);
     }
-    else if ( userChoice + pcChoice == 'rockpaper' || userChoice + pcChoice == 'scissorsrock' || userChoice + pcChoice == 'paperscissors') {
+    else if (
+      userChoice + pcChoice == 'rockpaper'
+      || userChoice + pcChoice == 'scissorsrock'
+      || userChoice + pcChoice == 'paperscissors'
+      ) {
         this.lose(userChoice, pcChoice);
     }
     else {
